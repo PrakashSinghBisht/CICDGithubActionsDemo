@@ -29,3 +29,13 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean install
+    
+    - name: Build & push Docker image
+      uses: mr-smithers-excellent/docker-build-push@v6
+      with:
+        image: prakash620/springboot-images-new		#in pom.xml, inside build tag define finalName tag
+        tags: latest
+        registry: docker.io
+        dockerfile: Dockerfile
+        username: ${{ secrets.DOCKER_USERNAME }}	#configured in github setting > secret and variable > action
+        password: ${{ secrets.DOCKER_PASSWORD }}	#configured in github setting > secret and variable > action
