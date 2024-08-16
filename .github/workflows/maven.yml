@@ -32,6 +32,13 @@ jobs:
     
     - name: Build & push Docker image
       uses: mr-smithers-excellent/docker-build-push@v6
+     #Above line automates the build and push image process or else i would have used below
+     # - name: Build Docker image
+     #   run: docker build -t prakash620/springboot-images-new .
+
+     # - name: Push Docker image
+     #   run: docker push prakash620/springboot-images-new
+      
       with:
         image: prakash620/springboot-images-new		#in pom.xml, inside build tag define finalName tag
         tags: latest
